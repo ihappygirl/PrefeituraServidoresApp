@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, StyleSheet, Text, Linking, TouchableHighlight, Button } from 'react-native';
+import { View, StyleSheet, Text, Linking, TouchableHighlight } from 'react-native';
 import colors from '../styles/colors';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
@@ -24,11 +24,13 @@ const ItemLista = (props) => {
 
   return (
     <View style={styles.buttonContainer}>
-      <Button title={props.nomeBotao} {...touchProps} tipo={props.tipo} style={styles.item} onPress={()=>{ props.tipo == "link" ? Linking.openURL(props.url) : navigation.navigate('Documentacao')}}>
+      <TouchableHighlight {...touchProps} style={styles.item} 
+        onPress={()=>{ props.nomeBotao !== "Documentação para Servidores" ? Linking.openURL(props.url) : navigation.navigate('Documentacao')}}>
         <View style={styles.containerConteudo}>
+          <Text style={styles.text}>{props.nomeBotao}</Text>
           <FontAwesomeIcon icon={faArrowUpRightFromSquare} color={colors.branco} style={styles.icon} size={24}/>
         </View>
-      </Button>
+      </TouchableHighlight>
     </View>
   );
 };

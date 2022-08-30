@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 // import de telas para Navigation
 import Documentacao from "./src/views/Documentacao";
 import Home from './src/views/Home';
+import PDFViewer from './src/views/PDFViewer';
 
 // configs do FontAwesome
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -25,11 +26,12 @@ const App = () => {
         screenOptions={{
           headerStyle: { backgroundColor: colors.azulEscuro },
           headerTintColor: colors.branco,
-          headerTitleStyle: { fontWeight: 'bold',},
+          headerTitleStyle: {fontSize: 18},
         }}
       >
         <Stack.Screen options={{headerShown: false}} name="Home" component={Home} />
         <Stack.Screen options={{title: "Documentação para Servidores"}} name="Documentacao" component={Documentacao}/>
+        <Stack.Screen options={{title: "Visualização de PDF"}} name="PDFViewer" component={PDFViewer}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

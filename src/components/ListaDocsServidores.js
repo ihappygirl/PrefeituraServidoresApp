@@ -2,9 +2,12 @@ import { View, StyleSheet, SafeAreaView, FlatList, Text, Linking,TouchableHighli
 import colors from '../styles/colors';
 import docsList from '../data/docsList';
 import * as React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 // Criação da flatlist
 const ListaDocsServidores = () => {
+
+  // mudar cor de underlay quando pressionar o botão
   const [isPressed, setIsPressed] = React.useState(false);
 
   const touchProps = {
@@ -14,14 +17,15 @@ const ListaDocsServidores = () => {
     onShowUnderlay: () => setIsPressed(true),
   };
 
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.containerLista}>
       <FlatList
         data={docsList}
-        numColumns={1}
         renderItem={({ item }) => (
             <View style={styles.buttonContainer}>
-              <TouchableHighlight {...touchProps} style={styles.item} onPress={()=>{Linking.openURL(item.url)}}>
+              <TouchableHighlight {...touchProps} style={styles.item} onPress={()=>{ navigation.navigate('PDFViewer')}}>
                   <Text style={styles.text}>{item.title}</Text>
               </TouchableHighlight>
             </View>
