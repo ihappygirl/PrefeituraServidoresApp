@@ -2,12 +2,10 @@ import React from 'react';
 import { View } from 'react-native';
 import ListaDocsServidores from '../components/ListaDocsServidores';
 
-const Documentacao = () => {
+export default function Documentacao ({ navigation }) {
     return (
         <View style={{flex: 1}}>
-           <ListaDocsServidores/>
+            <ListaDocsServidores/>
         </View>
-    )
-}
-
-export default Documentacao;
+    );
+  }

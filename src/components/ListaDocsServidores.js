@@ -5,9 +5,9 @@ import * as React from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 // Criação da flatlist
-const ListaDocsServidores = () => {
+export default function ListaDocsServidores () {
 
-  // mudar cor de underlay quando pressionar o botão
+  // mudar cor de underlay quando pressionar um botão
   const [isPressed, setIsPressed] = React.useState(false);
 
   const touchProps = {
@@ -25,7 +25,11 @@ const ListaDocsServidores = () => {
         data={docsList}
         renderItem={({ item }) => (
             <View style={styles.buttonContainer}>
-              <TouchableHighlight {...touchProps} style={styles.item} onPress={()=>{ navigation.navigate('PDFViewer')}}>
+              <TouchableHighlight
+                onPress={()=>{ navigation.navigate('PDFViewer', { docUrl: item.url} )}} 
+                {...touchProps}
+                style={styles.item}
+              >
                   <Text style={styles.text}>{item.title}</Text>
               </TouchableHighlight>
             </View>
@@ -53,5 +57,3 @@ const styles = StyleSheet.create({
     color: colors.branco,
   }
 });
-
-export default ListaDocsServidores;
