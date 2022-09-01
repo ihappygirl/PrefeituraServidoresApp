@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, StyleSheet, Text} from 'react-native';
-import { faSquareEnvelope, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faSquareEnvelope } from '@fortawesome/free-solid-svg-icons';
 import colors from '../styles/colors';
 import RedesSociais from './RedesSociais';
 

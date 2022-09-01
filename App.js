@@ -27,24 +27,16 @@ const Stack = createStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{
-          headerStyle: { backgroundColor: colors.azulEscuro }, headerTitleAlign: "center",
+      <Stack.Navigator 
+        screenOptions={{
+          headerStyle: { backgroundColor: colors.azulEscuro },
+          headerTitleAlign: "center",
           headerTintColor: colors.branco, headerTitleStyle: {fontSize: 18}
         }}
       >
         <Stack.Screen options={{headerShown: false}} name="Home" component={Home} />
-        <Stack.Screen options={{title: "Documentação para Servidores"}} name="Documentacao" component={Documentacao}/>
-        <Stack.Screen
-          name="PDFViewer" component={PDFViewer}
-          options={{
-            title: "Visualização de Arquivo",
-            headerRight: () => ( 
-              <TouchableOpacity onPress={() => alert('This is a button!')} style={{marginRight: 16}}>
-                <FontAwesomeIcon icon={faSave} color={colors.branco} size={24}/>
-              </TouchableOpacity>
-            ),
-          }}
-        />
+        <Stack.Screen options={{title: "Documentação para Servidores"}} name="Documentacao" component={Documentacao} />
+        <Stack.Screen options={{title: "Visualização de Arquivo"}} name="PDFViewer" component={PDFViewer} />
       </Stack.Navigator>
     </NavigationContainer>
   );
