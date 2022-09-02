@@ -27,7 +27,7 @@ export default function PDFViewer ({ route, navigation }) {
     
     // recebe a url do arquivo passado como params pela tela anterior (Documentacao)
     // url no formato "bundle-assets://caminho/pro/arquivo/", vinda da pasta
-    // android/app/src/main/assets/docs-servidores/
+    // android/app/src/main/assets/
     const { docUrl } = route.params;
 
     // exemplos de uri para source (conforme documentação da lib)
