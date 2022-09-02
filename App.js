@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './src/styles/styles';
 import colors from "./src/styles/colors";
-import { TouchableOpacity } from 'react-native-gesture-handler';
+
+import SplashScreen from 'react-native-splash-screen';
 
 // react-navigation
 import { NavigationContainer } from '@react-navigation/native';
@@ -25,6 +26,11 @@ library.add(fab, faSquareEnvelope, faArrowUpRightFromSquare, faGlobe, faSave);
 const Stack = createStackNavigator();
 
 const App = () => {
+
+  useEffect(() => {
+    SplashScreen.hide()
+  });
+
   return (
     <NavigationContainer>
       <Stack.Navigator 
