@@ -17,7 +17,6 @@ import PDFViewer from './src/views/PDFViewer';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faArrowUpRightFromSquare, faSquareEnvelope, faGlobe, faSave } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 
 // Adicionando FontAwesome icons conforme
 // https://www.npmjs.com/package/@fortawesome/react-native-fontawesome
@@ -27,9 +26,18 @@ const Stack = createStackNavigator();
 
 const App = () => {
 
+  // Timeout para splashscreen
+  const [hideSplash, setHideSplash] = React.useState(false);
+
   useEffect(() => {
-    SplashScreen.hide()
-  });
+    setTimeout(() => {
+      setHideSplash(true);
+    }, 2000);
+  }, []);
+
+  useEffect(() => {
+    hideSplash && SplashScreen.hide();
+  }, [hideSplash]);
 
   return (
     <NavigationContainer>
