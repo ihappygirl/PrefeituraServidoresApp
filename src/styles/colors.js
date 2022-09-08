@@ -1,6 +1,6 @@
 const colors = {
     azulClaro: "#59c6f2",
-    azulEscuro: "#044c7c",
+    azulEscuro: "#00497e",
     branco: "#f1f1f1",
     cinza: "#777777",
     cinzaEscuro: "#222222",
