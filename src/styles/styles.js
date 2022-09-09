@@ -14,7 +14,7 @@ const styles = {
   },
   containerLista:{
     flex: 3,
-    paddingVertical: 24,
+    paddingVertical: 24
   },
   title: {
     marginTop: 16,

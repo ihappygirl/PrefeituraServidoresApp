@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Dimensions, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, Dimensions, View, Text, TouchableOpacity, Platform } from 'react-native';
 import Pdf from 'react-native-pdf';
 import colors from '../styles/colors';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
@@ -26,18 +26,16 @@ export default function PDFViewer ({ route, navigation }) {
     const [totalPag, setTotalPag] = useState(0);
     
     // recebe a url do arquivo passado como params pela tela anterior (Documentacao)
-    // url no formato "bundle-assets://caminho/pro/arquivo/", vinda da pasta
-    // android/app/src/main/assets/
+    // url vinda da pasta android/app/src/main/assets/
     const { docUrl } = route.params;
+    //console.log(docUrl);
 
-    // exemplos de uri para source (conforme documentação da lib)
-    //const source = 'http://samples.leanpub.com/thereactnativebook-sample.pdf';
-    //const source = 'bundle-assets://docs-servidores/teste1.pdf';
+    const source = Platform.OS === 'ios' ? require("../../docs-servidores/teste1.pdf") : { uri: 'bundle-assets://'+ docUrl, cache: true};
 
     return (
         <View style={styles.container}>
             <Pdf
-                source={{uri: docUrl, cache: true}}
+                source={source}
                 trustAllCerts={false}
                 style={styles.pdf}
                 enablePaging={true}

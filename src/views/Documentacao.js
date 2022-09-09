@@ -40,8 +40,8 @@ export default function Documentacao({ navigation }){
 
 // Estilização
 const styles = StyleSheet.create({
-  containerLista: { paddingVertical: 16 },
-  buttonContainer: { marginHorizontal: 16, marginVertical: 6 },
+  containerLista: { marginVertical: 16 },
+  buttonContainer: { marginHorizontal: 16, marginVertical: 8},
   item: {
     height: 60,
     backgroundColor: colors.azulClaro,

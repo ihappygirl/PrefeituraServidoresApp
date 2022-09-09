@@ -45,7 +45,8 @@ const App = () => {
         screenOptions={{
           headerStyle: { backgroundColor: colors.azulEscuro },
           headerTitleAlign: "center",
-          headerTintColor: colors.branco, headerTitleStyle: {fontSize: 18}
+          headerTintColor: colors.branco, headerTitleStyle: {fontSize: 16},
+          headerBackTitleVisible: false
         }}
       >
         <Stack.Screen options={{headerShown: false}} name="Home" component={Home} />

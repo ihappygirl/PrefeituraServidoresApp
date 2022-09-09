@@ -11,8 +11,8 @@ const Home = () => {
             <View style={styles.containerHeader}>
                 <Image source={require('../icons/itapevi-hd_2.png')} style={styles.image}/>
             </View>
-            <SafeAreaView style={styles.containerLista}>
-                <ScrollView contentContainerStyle={{justifyContent: "center"}}>
+            <View style={styles.containerLista}>
+                <ScrollView contentContainerStyle={{flexGrow : 1, justifyContent : 'center'}}>
                     <ItemLista nomeBotao="Área do Servidor" url="https://novoportal.conam.com.br/rhitapevi/login.php"/>
                     <ItemLista nomeBotao="Ponto Eletrônico" url="http://corporativosp.veltiponto.com.br/veltiponto/login.jsf"/>
                     <ItemLista nomeBotao="Clube de Benefícios" url="http://itapevi.sp.gov.br/clube-de-beneficios/"/>
@@ -20,7 +20,7 @@ const Home = () => {
                     <ItemLista nomeBotao="Documentação para Servidores" />
                     <ItemLista nomeBotao="Envio de Atestado Médico" url="mailto:atestado@itapevi.sp.gov.br"/>
                 </ScrollView>
-            </SafeAreaView>
+            </View>
             <Footer/>
         </View>
     );
