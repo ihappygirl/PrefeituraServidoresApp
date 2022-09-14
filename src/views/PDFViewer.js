@@ -30,12 +30,12 @@ export default function PDFViewer ({ route, navigation }) {
     const { docUrl } = route.params;
     //console.log(docUrl);
 
-    const source = Platform.OS === 'ios' ? require("../../docs-servidores/teste1.pdf") : { uri: 'bundle-assets://'+ docUrl, cache: true};
+    //const source = Platform.OS === 'ios' ? require("../../teste1.pdf") : { uri: 'bundle-assets://'+ docUrl , cache: true};
 
     return (
         <View style={styles.container}>
             <Pdf
-                source={source}
+                source={docUrl}
                 trustAllCerts={false}
                 style={styles.pdf}
                 enablePaging={true}

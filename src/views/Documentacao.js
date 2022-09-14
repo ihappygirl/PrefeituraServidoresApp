@@ -24,7 +24,12 @@ export default function Documentacao({ navigation }){
             renderItem={({ item }) => (
                 <View style={styles.buttonContainer}>
                     <TouchableHighlight
-                        onPress={()=>{ navigation.navigate('PDFViewer', { docUrl: item.url} )}} 
+                        onPress={()=>{ 
+                          navigation.navigate(
+                            'PDFViewer', 
+                            { docUrl: Platform.OS === 'ios' ? item.urlIos : { uri: 'bundle-assets://'+ item.urlAndroid, cache: true} }
+                          )}
+                        } 
                         {...mudarCorUnderlay}
                         style={styles.item}
                     >
