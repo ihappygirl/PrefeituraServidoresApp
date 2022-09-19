@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { StyleSheet, Dimensions, View, Text, TouchableOpacity, Platform } from 'react-native';
-import Pdf from 'react-native-pdf';
+import { StyleSheet, Dimensions, View, Text, TouchableOpacity } from 'react-native';
 import colors from '../styles/colors';
+
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
+import Pdf from 'react-native-pdf';
+
 export default function PDFViewer ({ route, navigation }) {
 
-    // adiciona botão de salvar arquivo ao headerBar
+    /*// adiciona botão de salvar arquivo ao headerBar
     React.useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => (
@@ -16,7 +18,7 @@ export default function PDFViewer ({ route, navigation }) {
                 </TouchableOpacity>
             ),
         });
-    }, [navigation]);
+    }, [navigation]);*/
 
     // pagAtual - qual é a página do documento que a pessoa está vendo
     // totalPag - qual é o total de páginas do documento
@@ -26,11 +28,8 @@ export default function PDFViewer ({ route, navigation }) {
     const [totalPag, setTotalPag] = useState(0);
     
     // recebe a url do arquivo passado como params pela tela anterior (Documentacao)
-    // url vinda da pasta android/app/src/main/assets/
+    // url vinda da pasta /android/app/src/main/assets/ e no ios usa a pasta /src/docs-servidores/
     const { docUrl } = route.params;
-    //console.log(docUrl);
-
-    //const source = Platform.OS === 'ios' ? require("../../teste1.pdf") : { uri: 'bundle-assets://'+ docUrl , cache: true};
 
     return (
         <View style={styles.container}>
@@ -40,6 +39,11 @@ export default function PDFViewer ({ route, navigation }) {
                 style={styles.pdf}
                 enablePaging={true}
                 onPageChanged={(page, numberOfPages) => { setCount(page); setTotalPag(numberOfPages);}}
+                renderActivityIndicator={(progress) => {
+                    return (
+                        <Text>Carregando...</Text>		
+                    );
+                }}
             />
             <View style={styles.bottomContainer}>
                 <Text style={styles.textBottom}>{pagAtual}/{totalPag}</Text>
