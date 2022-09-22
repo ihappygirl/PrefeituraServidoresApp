@@ -8,7 +8,8 @@ import { useNavigation } from '@react-navigation/native';
 /*
   ItemLista - component reutilizável de item de uma lista que recebe como props:
     nomeBotao - titulo do botão
-    url - a url que vai ser aberta
+    url - a url que vai ser aberta no navegador pelo linking.openURL(url)
+    ou pagina - nome da página a ser aberta pelo navigation.navigate(pagina)
 */
 const ItemLista = (props) => {
   const [isPressed, setIsPressed] = React.useState(false);
