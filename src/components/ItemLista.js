@@ -25,7 +25,7 @@ const ItemLista = (props) => {
   return (
     <View style={styles.buttonContainer}>
       <TouchableHighlight {...touchProps} style={styles.item} 
-        onPress={()=>{ props.nomeBotao !== "Documentação para Servidores" ? Linking.openURL(props.url) : navigation.navigate('Documentacao')}}>
+        onPress={()=>{ props.pagina == null ? Linking.openURL(props.url) : navigation.navigate(props.pagina)}}>
         <View style={styles.containerConteudo}>
           <Text style={styles.text}>{props.nomeBotao}</Text>
           <FontAwesomeIcon icon={faArrowUpRightFromSquare} color={colors.branco} style={styles.icon} size={24}/>

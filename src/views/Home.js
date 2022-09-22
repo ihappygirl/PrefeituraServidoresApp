@@ -13,12 +13,12 @@ const Home = () => {
             </View>
             <View style={styles.containerLista}>
                 <ScrollView contentContainerStyle={{flexGrow : 1, justifyContent : 'center'}}>
-                    <ItemLista nomeBotao="Área do Servidor" url="https://novoportal.conam.com.br/rhitapevi/login.php"/>
+                    <ItemLista nomeBotao="Acesse seu Holerite" url="https://novoportal.conam.com.br/rhitapevi/login.php"/>
                     <ItemLista nomeBotao="Ponto Eletrônico" url="http://corporativosp.veltiponto.com.br/veltiponto/login.jsf"/>
-                    <ItemLista nomeBotao="Clube de Benefícios" url="http://itapevi.sp.gov.br/clube-de-beneficios/"/>
+                    <ItemLista nomeBotao="Clube de Benefícios" pagina="ClubeBeneficios"/>
                     <ItemLista nomeBotao="Recadastramento Anual" url="https://novoportal.conam.com.br/rhitapevi/identificacao.php"/>
-                    <ItemLista nomeBotao="Documentação para Servidores" />
-                    <ItemLista nomeBotao="Envio de Atestado Médico" url="mailto:atestado@itapevi.sp.gov.br"/>
+                    <ItemLista nomeBotao="Documentação para Servidores" pagina="Documentacao" />
+                    <ItemLista nomeBotao="Medicina do Trabalho" pagina="MedicinaTrabalho"/>
                 </ScrollView>
             </View>
             <Footer/>

@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import styles from './src/styles/styles';
 import colors from "./src/styles/colors";
 
 import SplashScreen from 'react-native-splash-screen';
@@ -12,6 +11,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from './src/views/Home';
 import Documentacao from "./src/views/Documentacao";
 import PDFViewer from './src/views/PDFViewer';
+import ClubeBeneficios from './src/views/ClubeBeneficios';
+import MedicinaTrabalho from './src/views/MedicinaTrabalho';
 
 // configs do FontAwesome
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -50,8 +51,10 @@ const App = () => {
         }}
       >
         <Stack.Screen options={{headerShown: false}} name="Home" component={Home} />
+        <Stack.Screen options={{title: "Clube de Benefícios"}} name="ClubeBeneficios" component={ClubeBeneficios} />
         <Stack.Screen options={{title: "Documentação para Servidores"}} name="Documentacao" component={Documentacao} />
         <Stack.Screen options={{title: "Visualização de Arquivo"}} name="PDFViewer" component={PDFViewer} />
+        <Stack.Screen options={{title: "Medicina do Trabalho"}} name="MedicinaTrabalho" component={MedicinaTrabalho} />
       </Stack.Navigator>
     </NavigationContainer>
   );
