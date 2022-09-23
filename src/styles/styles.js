@@ -30,6 +30,21 @@ const styles = {
     height: 80,
     width: "80%",
     marginTop: 16
+  },
+  /* Estilização para FlatLists */
+  marginLista: { marginVertical: 16, flex: 1 },
+  buttonContainer: { marginHorizontal: 16, marginVertical: 8},
+  item: {
+    height: 60,
+    backgroundColor: colors.azulClaro,
+    borderRadius: 10,
+    justifyContent: "center"
+  },
+  text: {
+    fontSize: 17,
+    marginHorizontal: 16, marginVertical: 6,
+    fontWeight: "bold",
+    color: colors.branco,
   }
 }
 
