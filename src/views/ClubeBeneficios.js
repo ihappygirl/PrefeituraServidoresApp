@@ -1,29 +1,58 @@
-import { View, StyleSheet } from 'react-native';
-import colors from '../styles/colors';
 import * as React from 'react';
+import { View, StyleSheet, FlatList, Text } from 'react-native';
+import {AccordionList} from "accordion-collapse-react-native";
+import styles from '../styles/styles';
+import colors from '../styles/colors';
+import beneficiosList from '../data/beneficiosList';
 
-// Criação da flatlist
-export default function ClubeBeneficios () {
-  return (
-    <View style={{flex: 1, backgroundColor: "red"}}>
-    </View>
-  );
+class ClubeBeneficios extends React.Component {
+
+  _categoria(item){
+    return(
+      <View style={[styles.item, styles.buttonContainer]}>
+        <Text style={styles.text}>{item.categoria}</Text>
+      </View>
+    );
+  }
+
+  _estabelecimentos(item){
+    return (
+      <View>
+        <FlatList
+          data={item.info}
+          keyExtractor={(item, index) => index}
+          renderItem={({ item }) => (
+            <View>
+              <Text>{item.title}</Text>
+              <Text>{item.texto}</Text>
+              {item.endereco == null ? '' : <Text>{item.endereco}</Text>}
+              {item.telefone == null ? '' : <Text>{item.telefone}</Text>}
+              {item.site == null ? '' : <Text>{item.site}</Text>}
+            </View>
+          )}
+        />
+      </View>
+    );
+  }
+
+  render() {
+    return (
+      <View style={styles.marginLista}>
+        <AccordionList
+          list={beneficiosList}
+          header={this._categoria}
+          body={this._estabelecimentos}
+          keyExtractor={item => item.id}
+        />
+      </View>
+    );
+  }
 };
 
+export default ClubeBeneficios;
+
 // Estilização
-const styles = StyleSheet.create({
-  containerLista: { marginVertical: 16 },
-  buttonContainer: { marginHorizontal: 16, marginVertical: 8},
-  item: {
-    height: 60,
-    backgroundColor: colors.azulClaro,
-    borderRadius: 10,
-    justifyContent: "center"
-  },
-  text: {
-    fontSize: 17,
-    marginHorizontal: 16, marginVertical: 6,
-    fontWeight: "bold",
-    color: colors.branco,
-  }
+const styl = StyleSheet.create({
+
+  
 });
