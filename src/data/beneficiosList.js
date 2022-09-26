@@ -126,7 +126,7 @@ const beneficiosList = [
                 title: 'JM Farma Drogaria',
                 texto: '30% de desconto em medicamentos genéricos e similares. 10% de desconto em medicamentos com receituário. 5% de desconto em perfumaria (exceto leite e fralda), mediante apresentação do holerite.',
                 endereco: 'Avenida Presidente Vargas, 393 – Cidade Saúde',
-                telefone: '4141-4772/ 4205-0554/ 98957-9104 (Whatsapp)'
+                telefone: '4141-4772 / 4205-0554 / 98957-9104 (WhatsApp)'
             },
             {   
                 title: 'Vick Odontologia',
@@ -138,20 +138,20 @@ const beneficiosList = [
                 title: 'Academia Classe A',
                 texto: 'Condições diferenciadas para servidores mediante apresentação do holerite.',
                 endereco: 'Avenida Presidente Vargas, 393 – Cidade Saúde',
-                telefone: '4141-4772/ 4205-0554/ 98957-9104 (Whatsapp)'
+                telefone: '4141-4772 / 4205-0554 / 98957-9104 (WhatsApp)'
             },
             {   
                 title: 'Bio Mania Academia',
                 texto: 'Condições especiais para o servidor público de Itapevi mediante apresentação do crachá.',
                 endereco: 'Avenida Cesário de Abreu, 503 – Itapevi',
-                telefone: '4142-3769/ 94018-5011 (Whatsapp)',
+                telefone: '4142-3769 / 94018-5011 (WhatsApp)',
                 site: 'www.biomaniaacademia.com.br'
             },
             {
                 title: 'Souza e Zamariolo Odontologia',
                 texto: '25% de desconto para funcionários mediante apresentação do holerite.',
                 endereco: 'Rua Licínio Avelino da Costa, 119 –Sala 3 – Jardim Rosemary',
-                telefone: '4142-5513/ 98652-2466',
+                telefone: '4142-5513 / 98652-2466',
                 site: 'www.sdodontologia.com.br'
             },
             {   
@@ -192,7 +192,7 @@ const beneficiosList = [
                 title: 'Espaço Vida Saudável – Herbalife',
                 texto: 'Até 20% de desconto mediante apresentação do holerite.',
                 endereco: 'Avenida Presidente Vargas, 181, Sala 1 – Vila Nova Itapevi',
-                telefone: '98031-5760 (Whatsapp)'
+                telefone: '98031-5760 (WhatsApp)'
             },
             {   
                 title: 'Sorridents',
@@ -249,14 +249,14 @@ const beneficiosList = [
                 title: 'Comercial Lubvargas',
                 texto: '5% de desconto em serviços mediante apresentação de crachá e holerite.',
                 endereco: 'Avenida Presidente Vargas, 707/688 – Cidade Saúde',
-                telefone: '4773- 5648 / 94013-5865 (Whatsapp)',
+                telefone: '4773- 5648 / 94013-5865 (WhatsApp)',
                 site: 'comerciallubvargas@hotmail.com'
             },
             {
                 title: 'Duca Silva – Fotografia',
                 texto: '10% de desconto para contratante. Contratante que indicar outro cliente que fechar contrato ganha + 5% de desconto.',
                 endereco: 'Rua Piracicaba, 202 – Jardim Portela',
-                telefone: '97384-4717 (Whatsapp)',
+                telefone: '97384-4717 (WhatsApp)',
                 site: 'eduardocs28@fotografia.com.br'
             },
             {   
@@ -291,7 +291,7 @@ const beneficiosList = [
                 title: 'Capricho de Brechó',
                 texto: '5% a 10% de desconto para funcionários mediante apresentação do holerite.',
                 endereco: 'Rua Doutor José Pedro de castro, 36 – Jardim Rainha',
-                telefone: '4141-6357 / 94342-0139 / 98558-3039 (Whatsapp)',
+                telefone: '4141-6357 / 94342-0139 / 98558-3039 (WhatsApp)',
             },
             {
                 title: 'Coisas e Ferramentas',
@@ -316,7 +316,8 @@ const beneficiosList = [
             },
         ]
     },
-    {   id: 5,
+    {   
+        id: 5,
         categoria:'Outros',
         info: [
             {
@@ -336,7 +337,7 @@ const beneficiosList = [
             },
             {   
                 id: 11,
-                title: 'Glória A. Xavier – Consultoria de Beleza e Imagem',
+                title: 'Glória A. Xavier – Consult. de Beleza e Imagem',
                 texto: '10% de desconto na compra de qualquer produto à vista, débito ou crédito.',
                 endereco: 'Rua Darwin, 369 – apartamento 53 – Santo Amaro – São Paulo/ SP',
                 telefone: '99217-3137/ 98750-2929',
