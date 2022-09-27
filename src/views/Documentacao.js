@@ -27,7 +27,7 @@ export default function Documentacao({ navigation }){
               onPress={()=>{ 
                 navigation.navigate(
                   'PDFViewer', 
-                  { docUrl: Platform.OS === 'ios' ? item.urlIos : { uri: 'bundle-assets://'+ item.urlAndroid, cache: true} }
+                  { docUrl: Platform.OS === 'ios' ? item.urlIos : item.urlAndroid }
                 )}
               } 
               {...mudarCorUnderlay}

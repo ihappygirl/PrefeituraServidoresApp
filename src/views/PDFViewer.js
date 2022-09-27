@@ -1,24 +1,82 @@
 import React, { useState } from 'react';
-import { StyleSheet, Dimensions, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, Dimensions, View, Text, TouchableOpacity, Platform, PermissionsAndroid } from 'react-native';
 import colors from '../styles/colors';
 
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
 import Pdf from 'react-native-pdf';
+import RNFS from 'react-native-fs';
 
 export default function PDFViewer ({ route, navigation }) {
 
-    /*// adiciona botão de salvar arquivo ao headerBar
+    // recebe a url do arquivo passado como params pela tela anterior (Documentacao)
+    // url vinda da pasta /android/app/src/main/assets/ e no ios usa a pasta /src/docs-servidores/
+    const { docUrl } = route.params;
+    const arquivoAtual = Platform.OS === 'ios' ? docUrl : { uri: 'bundle-assets://'+ docUrl, cache: true};
+    console.log(docUrl);
+
+    // Pedir permissão para baixar arquivo (Android apenas, IOS vai direto)
+    // Caso a pessoa permita, executa downloadPdf(), que copia o pdf para a pasta Downloads do dispositivo
+    const checkPermission = async () => {
+        if (Platform.OS === 'ios') {
+            downloadPdf();
+        } else {
+            try {
+            const granted = await PermissionsAndroid.request( 
+                PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE, 
+                {
+                    title: 'Permissão para Download', 
+                    message: 'O app precisa de sua permissão para baixar arquivos para o dispositivo.'
+                }
+            );
+            if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+                downloadPdf();
+            } else {
+                alert('Permissão para fazer download negada!');
+            }
+            } catch (err) {
+                console.warn(err);
+            }
+        }
+    };
+    
+    const downloadPdf = () => {
+        // recebe o nome do arquivo atual para pegá-lo e copiar para $pastaDestino
+        const arquivoSelecionado = docUrl;
+        // retorna o caminho para a pasta Downloads e cria um novo arquivo com o nome do arquivo atual
+        const pastaDestino = `${RNFS.DownloadDirectoryPath}/${arquivoSelecionado}`;
+    
+        // processo de copia do arquivo
+        if (Platform.OS === "android") {
+            RNFS.copyFileAssets(arquivoSelecionado, pastaDestino)
+            .then((result) => {
+                //console.log("copiou para:", RNFS.DownloadDirectoryPath);
+                alert('Arquivo baixado com sucesso!');
+            }).catch((error) => {
+                console.log("não copiou!");
+            });
+        } else if ( Platform.OS === "ios" ) {
+            RNFS.copyFile( `${RNFS.MainBundlePath}/optimized_model.mlmodelc`, `${RNFS.DocumentDirectoryPath}/optimized_model.mlmodelc` )
+            .then((result) => {
+                //console.log("copiou para:", RNFS.DownloadDirectoryPath);
+                alert('Arquivo baixado com sucesso!');
+            }).catch((error) => {
+                console.log("não copiou!");
+            });
+        }
+    };
+
+    // adiciona botão de salvar arquivo ao headerBar
     React.useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => (
-                <TouchableOpacity onPress={() => alert('This is a button!')} style={{marginRight: 16}}>
+                <TouchableOpacity onPress={checkPermission} style={{marginRight: 16}}>
                     <FontAwesomeIcon icon={faSave} color={colors.branco} size={24}/>
                 </TouchableOpacity>
             ),
         });
-    }, [navigation]);*/
+    }, [navigation]);
 
     // pagAtual - qual é a página do documento que a pessoa está vendo
     // totalPag - qual é o total de páginas do documento
@@ -27,14 +85,10 @@ export default function PDFViewer ({ route, navigation }) {
     const [pagAtual, setCount] = useState(0);
     const [totalPag, setTotalPag] = useState(0);
     
-    // recebe a url do arquivo passado como params pela tela anterior (Documentacao)
-    // url vinda da pasta /android/app/src/main/assets/ e no ios usa a pasta /src/docs-servidores/
-    const { docUrl } = route.params;
-
     return (
         <View style={styles.container}>
             <Pdf
-                source={docUrl}
+                source={arquivoAtual}
                 trustAllCerts={false}
                 style={styles.pdf}
                 enablePaging={true}
