@@ -25,7 +25,9 @@ npx react-native run-ios
 ```
 
 ## Packages Utilizados:
-- [Font Awesome](https://www.npmjs.com/package/@fortawesome/react-native-fontawesome)
-- [React Navigation](https://reactnavigation.org/docs/getting-started#installing-dependencies-into-a-bare-react-native-project)
-- [React Native Splash Screen](https://www.npmjs.com/package/react-native-splash-screen)
-- [React Native Pdf](https://github.com/wonday/react-native-pdf)
+- [accordion-collapse-react-native](https://www.npmjs.com/package/accordion-collapse-react-native)
+- [react-native-fontawesome](https://www.npmjs.com/package/@fortawesome/react-native-fontawesome)
+- [react-native-fs](https://github.com/itinance/react-native-fs)
+- [react-native-pdf](https://github.com/wonday/react-native-pdf)
+- [react-native-splash-screen](https://www.npmjs.com/package/react-native-splash-screen)
+- [react-navigation](https://reactnavigation.org/docs/getting-started#installing-dependencies-into-a-bare-react-native-project)
