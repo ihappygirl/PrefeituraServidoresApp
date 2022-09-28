@@ -1,17 +1,17 @@
 import * as React from 'react';
-import { View, StyleSheet, Text, Linking, TouchableHighlight } from 'react-native';
+import { View, StyleSheet, Text, Linking, TouchableHighlight} from 'react-native';
 import colors from '../styles/colors';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { useNavigation } from '@react-navigation/native';
 
 /*
-  ItemLista - component reutilizável de item de uma lista que recebe como props:
+  CustomButton - component reutilizável de item de uma lista que recebe como props:
     nomeBotao - titulo do botão
     url - a url que vai ser aberta no navegador pelo linking.openURL(url)
     ou pagina - nome da página a ser aberta pelo navigation.navigate(pagina)
 */
-const ItemLista = (props) => {
+const CustomButton = (props) => {
   const [isPressed, setIsPressed] = React.useState(false);
 
   const touchProps = {
@@ -61,4 +61,4 @@ const styles = StyleSheet.create({
   icon: { marginRight: 18 }
 });
 
-export default ItemLista;
+export default CustomButton;

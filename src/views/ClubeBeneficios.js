@@ -2,7 +2,6 @@ import * as React from 'react';
 import { View, StyleSheet, FlatList, Text } from 'react-native';
 import {AccordionList} from "accordion-collapse-react-native";
 import styles from '../styles/styles';
-import colors from '../styles/colors';
 import beneficiosList from '../data/beneficiosList';
 import CardView from '../components/CardView';
 
@@ -40,7 +39,7 @@ class ClubeBeneficios extends React.Component {
 
   render() {
     return (
-      <View style={styles.marginLista}>
+      <View style={[styles.container, styles.marginLista]}>
         <AccordionList
           list={beneficiosList}
           header={this.categoria}
