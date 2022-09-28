@@ -17,11 +17,11 @@ import MedicinaTrabalho from './src/views/MedicinaTrabalho';
 // configs do FontAwesome
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faArrowUpRightFromSquare, faSquareEnvelope, faGlobe, faSave } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUpRightFromSquare, faSquareEnvelope, faGlobe, faDownload } from '@fortawesome/free-solid-svg-icons';
 
 // Adicionando FontAwesome icons conforme
 // https://www.npmjs.com/package/@fortawesome/react-native-fontawesome
-library.add(fab, faSquareEnvelope, faArrowUpRightFromSquare, faGlobe, faSave);
+library.add(fab, faSquareEnvelope, faArrowUpRightFromSquare, faGlobe, faDownload);
 
 const Stack = createStackNavigator();
 

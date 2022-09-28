@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Dimensions, View, Text, TouchableOpacity, Platform, PermissionsAndroid, Alert } from 'react-native';
 import colors from '../styles/colors';
 
-import { faSave } from '@fortawesome/free-solid-svg-icons';
+import { faDownload} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
 import Pdf from 'react-native-pdf';
@@ -14,7 +14,7 @@ export default function PDFViewer ({ route, navigation }) {
     // url vinda da pasta /android/app/src/main/assets/ e no ios usa a pasta /src/docs-servidores/
     const { docUrl } = route.params;
     const arquivoAtual = Platform.OS === 'ios' ? docUrl : { uri: 'bundle-assets://'+ docUrl, cache: true};
-    console.log(docUrl);
+    //console.log(docUrl);
 
     // Pedir permissão para baixar arquivo (Android apenas, IOS vai direto)
     // Caso a pessoa permita, executa downloadPdf(), que copia o pdf para a pasta Downloads do dispositivo
@@ -33,7 +33,7 @@ export default function PDFViewer ({ route, navigation }) {
             if (granted === PermissionsAndroid.RESULTS.GRANTED) {
                 downloadPdf();
             } else {
-                Alert.alert('Não é possível fazer download', 'Permissão para fazer download negada.');
+                alert('Permissão para fazer download negada!');
             }
             } catch (err) {
                 console.warn(err);
@@ -52,7 +52,7 @@ export default function PDFViewer ({ route, navigation }) {
             RNFS.copyFileAssets(arquivoSelecionado, pastaDestino)
             .then((result) => {
                 //console.log("copiou para:", RNFS.DownloadDirectoryPath);
-                Alert.alert('Download Concluído', 'Arquivo baixado com sucesso! Verifique a pasta downloads no seu celular.');
+                Alert.alert('Download Concluído', 'Arquivo baixado com sucesso! Verifique a pasta downloads do seu dispositivo.');
             }).catch((error) => {
                 console.log("não copiou!");
             });
@@ -72,7 +72,7 @@ export default function PDFViewer ({ route, navigation }) {
         navigation.setOptions({
             headerRight: () => (
                 <TouchableOpacity onPress={checkPermission} style={{marginRight: 16}}>
-                    <FontAwesomeIcon icon={faSave} color={colors.branco} size={24}/>
+                    <FontAwesomeIcon icon={faDownload} color={colors.branco} size={24}/>
                 </TouchableOpacity>
             ),
         });
