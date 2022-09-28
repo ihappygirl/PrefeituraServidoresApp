@@ -1,29 +1,14 @@
-import { View, StyleSheet } from 'react-native';
-import colors from '../styles/colors';
+import { View, StyleSheet, Text} from 'react-native';
+import styles from '../styles/styles';
 import * as React from 'react';
+import CustomButton from '../components/CustomButton';
+
 
 // Criação da flatlist
 export default function MedicinaTrabalho () {
   return (
-    <View style={{flex: 1, backgroundColor: "pink"}}>
+    <View style={styles.container}>
+      <CustomButton nomeBotao="Enviar Atestado Médico" url="mailto:atestado@itapevi.sp.gov.br"/>
     </View>
   );
 };
-
-// Estilização
-const styles = StyleSheet.create({
-  containerLista: { marginVertical: 16 },
-  buttonContainer: { marginHorizontal: 16, marginVertical: 8},
-  item: {
-    height: 60,
-    backgroundColor: colors.azulClaro,
-    borderRadius: 10,
-    justifyContent: "center"
-  },
-  text: {
-    fontSize: 17,
-    marginHorizontal: 16, marginVertical: 6,
-    fontWeight: "bold",
-    color: colors.branco,
-  }
-});
