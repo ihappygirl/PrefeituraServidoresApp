@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Dimensions, View, Text, TouchableOpacity, Platform, PermissionsAndroid } from 'react-native';
+import { StyleSheet, Dimensions, View, Text, TouchableOpacity, Platform, PermissionsAndroid, Alert } from 'react-native';
 import colors from '../styles/colors';
 
 import { faSave } from '@fortawesome/free-solid-svg-icons';
@@ -33,7 +33,7 @@ export default function PDFViewer ({ route, navigation }) {
             if (granted === PermissionsAndroid.RESULTS.GRANTED) {
                 downloadPdf();
             } else {
-                alert('Permissão para fazer download negada!');
+                Alert.alert('Não é possível fazer download', 'Permissão para fazer download negada.');
             }
             } catch (err) {
                 console.warn(err);
@@ -52,15 +52,15 @@ export default function PDFViewer ({ route, navigation }) {
             RNFS.copyFileAssets(arquivoSelecionado, pastaDestino)
             .then((result) => {
                 //console.log("copiou para:", RNFS.DownloadDirectoryPath);
-                alert('Arquivo baixado com sucesso!');
+                Alert.alert('Download Concluído', 'Arquivo baixado com sucesso! Verifique a pasta downloads no seu celular.');
             }).catch((error) => {
                 console.log("não copiou!");
             });
         } else if ( Platform.OS === "ios" ) {
-            RNFS.copyFile( `${RNFS.MainBundlePath}/optimized_model.mlmodelc`, `${RNFS.DocumentDirectoryPath}/optimized_model.mlmodelc` )
+            RNFS.copyFile( `${RNFS.MainBundlePath}/${arquivoSelecionado}`, `${RNFS.DocumentDirectoryPath}/${arquivoSelecionado}` )
             .then((result) => {
                 //console.log("copiou para:", RNFS.DownloadDirectoryPath);
-                alert('Arquivo baixado com sucesso!');
+                Alert.alert('Download Concluído', 'Arquivo baixado com sucesso!');
             }).catch((error) => {
                 console.log("não copiou!");
             });
