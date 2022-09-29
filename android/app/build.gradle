@@ -137,7 +137,7 @@ android {
         applicationId "br.gov.sp.itapevi.servidoresapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
+        versionCode 4
         versionName "1.0"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
 
@@ -224,11 +224,12 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        
         release {
-            storeFile file('testekeystore.keystore')
-            storePassword 'Keystore1***'
-            keyAlias 'KeystoreAlias'
-            keyPassword 'Keystore1***'
+            storeFile file('prefeituraservidoresapp.keystore')
+            storePassword '@PrefeituraApp1***'
+            keyAlias 'PrefeituraServidoresApp'
+            keyPassword '@PrefeituraApp1***'
         }
     }
     buildTypes {
@@ -238,7 +239,7 @@ android {
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
