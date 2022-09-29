@@ -23,18 +23,18 @@ export default function PDFViewer ({ route, navigation }) {
             downloadPdf();
         } else {
             try {
-            const granted = await PermissionsAndroid.request( 
-                PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE, 
-                {
-                    title: 'Permissão para Download', 
-                    message: 'O app precisa de sua permissão para baixar arquivos para o dispositivo.'
+                const granted = await PermissionsAndroid.request( 
+                    PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE, 
+                    {
+                        title: 'Permissão para Download', 
+                        message: 'Este aplicativo precisa de sua permissão para baixar os arquivos para o dispositivo.'
+                    }
+                );
+                if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+                    downloadPdf();
+                } else {
+                    Alert.alert('Permissão Negada', 'Permissão para fazer download negada pelo usuário.');
                 }
-            );
-            if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-                downloadPdf();
-            } else {
-                alert('Permissão para fazer download negada!');
-            }
             } catch (err) {
                 console.warn(err);
             }
@@ -52,7 +52,7 @@ export default function PDFViewer ({ route, navigation }) {
             RNFS.copyFileAssets(arquivoSelecionado, pastaDestino)
             .then((result) => {
                 //console.log("copiou para:", RNFS.DownloadDirectoryPath);
-                Alert.alert('Download Concluído', 'Arquivo baixado com sucesso! Verifique a pasta downloads do seu dispositivo.');
+                Alert.alert('Download Concluído!', 'Verifique a pasta downloads do seu dispositivo.');
             }).catch((error) => {
                 console.log("não copiou!");
             });
