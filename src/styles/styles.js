@@ -40,11 +40,14 @@ const styles = {
     borderRadius: 10,
     justifyContent: "center"
   },
-  text: {
+  buttonText: {
     fontSize: 17,
     marginHorizontal: 16, marginVertical: 6,
     fontWeight: "bold",
     color: colors.branco,
+  },
+  hr:{
+    borderBottomColor: colors.cinza, borderBottomWidth: 0.5, margin: 16
   }
 }
 

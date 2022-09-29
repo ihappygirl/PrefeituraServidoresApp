@@ -11,7 +11,7 @@ class ClubeBeneficios extends React.Component {
   categoria(item){
     return(
       <View style={[styles.item, styles.buttonContainer]}>
-        <Text style={styles.text}>{item.categoria}</Text>
+        <Text style={styles.buttonText}>{item.categoria}</Text>
       </View>
     );
   }

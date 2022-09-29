@@ -33,7 +33,7 @@ export default function Documentacao({ navigation }){
               {...mudarCorUnderlay}
               style={styles.item}
             >
-              <Text style={styles.text}>{item.title}</Text>
+              <Text style={styles.buttonText}>{item.title}</Text>
             </TouchableHighlight>
           </View>
         )}
